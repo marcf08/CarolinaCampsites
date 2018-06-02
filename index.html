@@ -25,180 +25,161 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Campsite Collective</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <a class="navbar-brand" href="#">Campsite Collective</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">About<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+      <div class="col-xs-3">
+        <button class="btn btn-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Login</button>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+          <form class="px-1 py-1">
+            <div class="form-group">
+              <label for="email" id="loginEmail">Email</label>
+              <input type="email" class="form-control" id="loginUserEmail" placeholder="email@example.com">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="loginUserPassword" placeholder="Password">
+            </div>
+            <button type="button" class="btn btn-primary" id="loginSubmit" onclick="signon(document.getElementById('loginUserEmail').value, document.getElementById('loginUserPassword').value);">Sign in</button>
+          </form>
         </div>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
-  </div>
-</nav>
-
-  <div class="container-fluid">
-
-    <div class="row">
-      <div class="col-lg-2">
-        <div class="dropdown">
-          <button class="btn btn-primary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-  Login</button>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-            <form class="px-1 py-1">
-              <div class="form-group">
-                <label for="email" id="loginEmail">Email</label>
-                <input type="email" class="form-control" id="loginUserEmail" placeholder="email@example.com">
-              </div>
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="loginUserPassword" placeholder="Password">
-              </div>
-              <button type="button" class="btn btn-primary" id="loginSubmit" onclick="signon(document.getElementById('loginUserEmail').value, document.getElementById('loginUserPassword').value);">Sign in</button>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#registerModal">Register</button>
-            </form>
-          </div>
-        </div>
-      </div>
+      <button class="btn btn-light" data-toggle="modal" data-target="#registerModal" aria-expanded="false">Register</button>
     </div>
-    <div class="row">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col">
-            <div id="map"></div>
-            <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="Message">Message</h5>
-                  </div>
-                  <div class="loader"></div>
-                  <p class="text-left" id="msg"></p>
-                  <div class="modal-footer" id="modalFooter">
-                    <button type="button" class="btn btn-primary" id="cancel" data-dismiss="modal">Got it!</button>
-                  </div>
+    </span>
+    </div>
+  </nav>
+  <div class="row">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col">
+          <div id="map"></div>
+          <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="Message">Message</h5>
+                </div>
+                <div class="loader"></div>
+                <p class="text-left" id="msg"></p>
+                <div class="modal-footer" id="modalFooter">
+                  <button type="button" class="btn btn-primary" id="cancel" data-dismiss="modal">Got it!</button>
                 </div>
               </div>
             </div>
-            <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="Message">Message</h5>
-                  </div>
-                  <p class="text-center" id="msgError"></p>
-                  <div class="modal-footer" id="modalFooter">
-                    <button type="button" class="btn btn-primary" id="cancel" data-dismiss="modal">Got it!</button>
-                  </div>
+          </div>
+          <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="Message">Message</h5>
+                </div>
+                <p class="text-center" id="msgError"></p>
+                <div class="modal-footer" id="modalFooter">
+                  <button type="button" class="btn btn-primary" id="cancel" data-dismiss="modal">Got it!</button>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="Register">Register</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="Register">Register</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
+                </div>
+                <div class="modal-body" div id="modalBodyUpdate">
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="registerUserEmail" placeholder="email@example.com">
                   </div>
-                  <div class="modal-body" div id="modalBodyUpdate">
-                    <div class="form-group">
-                      <label for="email">Email</label>
-                      <input type="email" class="form-control" id="registerUserEmail" placeholder="email@example.com">
-                    </div>
-                    <div class="form-group">
-                      <label for="name">Name</label>
-                      <input type="name" class="form-control" id="registerUserRealName" placeholder="What should we call you?">
-                    </div>
-                    <div class="form-group">
-                      <label for="locale">Locale</label>
-                      <input type="locale" class="form-control" id="registerUserLocale" placeholder="Where are you?">
-                    </div>
-                    <div class="form-group">
-                      <label for="password">Password</label>
-                      <input type="password" class="form-control" id="registerUserPassword" placeholder="Password">
-                    </div>
-                    <div class="form-group">
-                      <label for="password">Confirm Password</label>
-                      <input type="password" class="form-control" id="registerUserPasswordConfirm" placeholder="Password">
-                    </div>
-                    </form>
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="name" class="form-control" id="registerUserRealName" placeholder="What should we call you?">
                   </div>
-                  <div class="modal-footer" id="modalFooter">
-                    <button type="button" class="btn btn-secondary" id="cancel" data-dismiss="modal" onclick="clearIt();">Cancel</button>
-                    <button type="button" class="btn btn-primary" id="registerButton" data-dismiss="modal" onclick="register(document.getElementById('registerUserEmail').value, document.getElementById('registerUserRealName').value, document.getElementById('registerUserLocale').value, document.getElementById('registerUserPassword').value, document.getElementById('registerUserPasswordConfirm').value);">Submit</button>
+                  <div class="form-group">
+                    <label for="locale">Locale</label>
+                    <input type="locale" class="form-control" id="registerUserLocale" placeholder="Where are you?">
                   </div>
+                  <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="registerUserPassword" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                    <label for="password">Confirm Password</label>
+                    <input type="password" class="form-control" id="registerUserPasswordConfirm" placeholder="Password">
+                  </div>
+                  </form>
+                </div>
+                <div class="modal-footer" id="modalFooter">
+                  <button type="button" class="btn btn-secondary" id="cancel" data-dismiss="modal" onclick="clearIt();">Cancel</button>
+                  <button type="button" class="btn btn-primary" id="registerButton" data-dismiss="modal" onclick="register(document.getElementById('registerUserEmail').value, document.getElementById('registerUserRealName').value, document.getElementById('registerUserLocale').value, document.getElementById('registerUserPassword').value, document.getElementById('registerUserPasswordConfirm').value);">Submit</button>
                 </div>
               </div>
             </div>
-            <div class="modal fade" id="addToMapModal" tabindex="-1" role="dialog" aria-labelledby="addToMapModal" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="Resource">Add a Resource</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          </div>
+          <div class="modal fade" id="addToMapModal" tabindex="-1" role="dialog" aria-labelledby="addToMapModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="Resource">Add a Resource</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-                  </div>
-                  <div class="modal-body">
-                    <div class="form-group">
-                      <label for="resourceType">Resource Type</label>
-                      <div class="input-group mb-3">
-                        <select class="custom-select" id="resourceSelection">
+                </div>
+                <div class="modal-body">
+                  <div class="form-group">
+                    <label for="resourceType">Resource Type</label>
+                    <div class="input-group mb-3">
+                      <select class="custom-select" id="resourceSelection">
                           <option value="Campsite">Campsite</option>
                           <option value="Water">Water</option>
                         </select>
-                      </div>
                     </div>
-                    <div class="form-group">
-                      <label for="resourceLatitude">Latitude</label>
-                      <input type="lat" class="form-control" id="resourceLatitude">
-                    </div>
-                    <div class="form-group">
-                      <label for="resourceLongitude">Longitude</label>
-                      <input type="lng" class="form-control" id="resourceLongitude">
-                    </div>
-                    </form>
                   </div>
-                  <div class="modal-footer" id="modalFooter">
-                    <button type="button" class="btn btn-secondary" id="cancel" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-primary" id="registerButton" data-dismiss="modal" onclick="addMarker(document.getElementById('resourceSelection').value, document.getElementById('resourceLatitude').value, document.getElementById('resourceLongitude').value);">Submit</button>
+                  <div class="form-group">
+                    <label for="resourceLatitude">Latitude</label>
+                    <input type="lat" class="form-control" id="resourceLatitude">
                   </div>
+                  <div class="form-group">
+                    <label for="resourceLongitude">Longitude</label>
+                    <input type="lng" class="form-control" id="resourceLongitude">
+                  </div>
+                  </form>
+                </div>
+                <div class="modal-footer" id="modalFooter">
+                  <button type="button" class="btn btn-secondary" id="cancel" data-dismiss="modal">Cancel</button>
+                  <button type="button" class="btn btn-primary" id="registerButton" data-dismiss="modal" onclick="addMarker(document.getElementById('resourceSelection').value, document.getElementById('resourceLatitude').value, document.getElementById('resourceLongitude').value);">Submit</button>
                 </div>
               </div>
             </div>
-            <div class="modal fade" id="ZoomInModal" tabindex="-1" role="dialog" aria-labelledby="addToMapModal" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="Resource">Message</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          </div>
+          <div class="modal fade" id="ZoomInModal" tabindex="-1" role="dialog" aria-labelledby="addToMapModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="Resource">Message</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-                  </div>
-                  <div class="modal-body">
-                    <p>Please zoom in before adding a resource!</p>
-                  </div>
-                  <div class="modal-footer" id="modalFooter">
-                    <button type="button" class="btn btn-primary" id="ok" data-dismiss="modal">Got it!</button>
-                  </div>
+                </div>
+                <div class="modal-body">
+                  <p>Please zoom in before adding a resource!</p>
+                </div>
+                <div class="modal-footer" id="modalFooter">
+                  <button type="button" class="btn btn-primary" id="ok" data-dismiss="modal">Got it!</button>
                 </div>
               </div>
             </div>
@@ -206,6 +187,7 @@
         </div>
       </div>
     </div>
+  </div>
   </div>
 
   <script type="text/javascript" src="./js/camp.js"></script>
