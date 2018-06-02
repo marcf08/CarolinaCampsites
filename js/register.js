@@ -1,11 +1,17 @@
+/**
+Contains front-end registration method and logic for handling the registration process
+via AWS Cognito.
+**/
 let noMatch = "Passwords do not match.";
 let badInput = "Input error.";
-let success = "Success!";
+let success = "Success! Please verify your email.";
+let unknown = "There was an unknown error. Please try again.";
 
 var data = {
-  UserPoolId: '', // Insert your user pool id
-  ClientId: '' // Insert your app client id
+  UserPoolId: 'us-east-1_evimZrQDn', // Insert your user pool id
+  ClientId: '689in92k06pd12lu9um7tl4bmb' // Insert your app client id
 };
+
 var userPool = new AmazonCognitoIdentity.CognitoUserPool(data);
 
 let register = function(username, registerUserRealName, registerUserLocale, password, confirmPassword) {
@@ -28,19 +34,19 @@ let register = function(username, registerUserRealName, registerUserLocale, pass
     $('#registerModal').modal('hide');
     $('#confirmModal').modal('show');
 
-    var dataName = {
+    let dataName = {
       Name : 'name',
       Value : registerUserRealName
     };
-    var dataLocale = {
+    let dataLocale = {
       Name: 'locale',
       Value: registerUserLocale
     };
 
-    var attributeList = [];
+    let attributeList = [];
 
-    var attributeName = new AmazonCognitoIdentity.CognitoUserAttribute(dataName);
-    var attributeLocale = new AmazonCognitoIdentity.CognitoUserAttribute(dataLocale);
+    let attributeName = new AmazonCognitoIdentity.CognitoUserAttribute(dataName);
+    let attributeLocale = new AmazonCognitoIdentity.CognitoUserAttribute(dataLocale);
 
     attributeList.push(attributeName);
     attributeList.push(attributeLocale);
@@ -48,10 +54,16 @@ let register = function(username, registerUserRealName, registerUserLocale, pass
     userPool.signUp(username, confirmPassword, attributeList, null, function(err, result){
         if (err) {
             console.log(err);
+            $('#confirmModal').modal('hide');
+            $('#errorModal').modal('show');
+            $('#msgError').text(success);
             return;
         }
-        cognitoUser = result.user;
-        console.log('user name is ' + cognitoUser.getUsername());
+        $('#confirmModal').modal('hide');
+        $('#errorModal').modal('show');
+        $('#msgError').text(success);
+        clearIt();
+        return;
     });
   }
 }
