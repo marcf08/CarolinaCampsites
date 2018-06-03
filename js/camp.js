@@ -9,11 +9,6 @@ map = new mapboxgl.Map({
   style: 'mapbox://styles/marcf08/cjhxpdtwh2n5i2rpbhckpno9h'
 });
 
-map.on('load', function() {
-
-
-
-})
 
 map.on('mouseup', function(e) {
   if (e.originalEvent.button == 2) {
