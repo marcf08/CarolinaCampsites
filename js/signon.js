@@ -33,8 +33,8 @@ var signon = function(username, password) {
   cognitoUser.authenticateUser(authenticationDetails, {
     onSuccess: function(result) {
       user = cognitoUser;
-      //console.log('access token + ' + result.getAccessToken().getJwtToken());
-      //console.log('idToken + ' + result.idToken.jwtToken);
+      console.log('access token + ' + result.getAccessToken().getJwtToken());
+      console.log('idToken + ' + result.idToken.jwtToken);
       cognitoUser.getSession(function(err, session) {
         if (err) {
           alert(err.message || JSON.stringify(err));

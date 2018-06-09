@@ -21,6 +21,11 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
   <script type="text/javascript" src="./js/register.js"></script>
   <script type="text/javascript" src="./js/signon.js"></script>
+  <script type="text/javascript" src="./js/push.js"></script>
+  <script type="text/javascript" src="./js/getPoints.js"></script>
+
+  <link rel="shortcut icon" href="">
+
 </head>
 
 <body>
@@ -226,7 +231,7 @@
                 </div>
                 <div class="modal-footer" id="modalFooter">
                   <button type="button" class="btn btn-secondary" id="cancel" data-dismiss="modal">Cancel</button>
-                  <button type="button" class="btn btn-primary" id="registerButton" data-dismiss="modal" onclick="addMarker(document.getElementById('resourceSelection').value, document.getElementById('resourceLatitude').value, document.getElementById('resourceLongitude').value);">Submit</button>
+                  <button type="button" class="btn btn-primary" id="registerButton" data-dismiss="modal" onclick="addMarker(document.getElementById('resourceSelection').value, document.getElementById('resourceLatitude').value, document.getElementById('resourceLongitude').value);pushPoint(document.getElementById('resourceLatitude').value, document.getElementById('resourceLongitude').value, document.getElementById('resourceSelection').value);">Submit</button>
                 </div>
               </div>
             </div>
