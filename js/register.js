@@ -6,6 +6,7 @@ let noMatch = "Passwords do not match.";
 let badInput = "Input error.";
 let success = "Success! Please verify your email.";
 let unknown = "There was an unknown error. Please try again.";
+let exists = "A user with that email already exists";
 
 var data = {
   UserPoolId: 'us-east-1_evimZrQDn', // Insert your user pool id
@@ -27,7 +28,6 @@ let register = function(username, registerUserRealName, registerUserLocale, pass
     $('#registerModal').modal('hide');
     $('#errorModal').modal('show');
     $('#msgError').text(noMatch);
-
     return;
   }
   if (password === confirmPassword) {
@@ -56,7 +56,7 @@ let register = function(username, registerUserRealName, registerUserLocale, pass
             console.log(err);
             $('#confirmModal').modal('hide');
             $('#errorModal').modal('show');
-            $('#msgError').text(success);
+            $('#msgError').text(exists);
             return;
         }
         $('#confirmModal').modal('hide');

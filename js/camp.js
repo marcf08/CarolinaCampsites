@@ -1,6 +1,7 @@
 /**
 Initialize mapbox
 **/
+
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFyY2YwOCIsImEiOiJjamh4Z2d5ZzgwYmlqM3dvNmxmZnRqYnIxIn0.7o_eO-2qNGzCFlfOjsqZSQ';
 map = new mapboxgl.Map({
   container: 'map',
@@ -23,10 +24,11 @@ map.on('mouseup', function(e) {
   }
 });
 
-let addMarker = function(resourceType, lat, lng) {
+let addMarker = function(resourceType, lat, lng, popup) {
   let el = document.createElement('div');
   el.className = 'marker';
   let marker = new mapboxgl.Marker(el)
     .setLngLat([lng, lat])
+    .setPopup(popup)
     .addTo(map);
 }

@@ -11,6 +11,10 @@
   cursor: pointer;
 }
 
+.mapboxgl-popup {
+    font: 14px 'Helvetica Neue', Arial, sans-serif;
+    max-width: 300px;
+}
 
 #map {
   width: 100%;

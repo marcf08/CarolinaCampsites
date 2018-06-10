@@ -8,7 +8,7 @@ var poolData = {
 }
 
 window.onload = function() {
-  let userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
+  var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
   cognitoUser = userPool.getCurrentUser();
   if (cognitoUser != undefined || cognitoUser != null) {
     $('#loginLogout').text('Logout');
@@ -33,8 +33,10 @@ var signon = function(username, password) {
   cognitoUser.authenticateUser(authenticationDetails, {
     onSuccess: function(result) {
       user = cognitoUser;
-      console.log('access token + ' + result.getAccessToken().getJwtToken());
-      console.log('idToken + ' + result.idToken.jwtToken);
+      //console.log('access token + ' + result.getAccessToken().getJwtToken());
+      //console.log('idToken + ' + result.idToken.jwtToken);
+      localStorage.setItem('token', result.idToken.jwtToken);
+
       cognitoUser.getSession(function(err, session) {
         if (err) {
           alert(err.message || JSON.stringify(err));
@@ -73,6 +75,7 @@ var signon = function(username, password) {
 
 var logout = function() {
   cognitoUser.signOut();
+  localStorage.removeItem('token');
   location.reload();
 }
 
