@@ -6,12 +6,13 @@
 
 // vendor scss
 @import "vendor/slds-grid";
+@import "modules/old-style";
 
 // non-css generating files
 
 // reusuable components
 @import "modules/layout";
-@import "modules/old-style";
+@import "modules/markers";
 
 // page-specific styles
 @import "pages/map-app"

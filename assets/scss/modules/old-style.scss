@@ -1,28 +1,7 @@
-#the_nav {
-  background-color: rgb(198, 175, 109) !important;
-}
-
-.marker {
-  background-image: url('../img/tent_marker.svg');
-  background-size: cover;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  cursor: pointer;
-}
 
 .mapboxgl-popup {
     font: 14px 'Helvetica Neue', Arial, sans-serif;
     max-width: 300px;
-}
-
-#map {
-  width: 100%;
-  height: 600px;
-}
-
-#map.large {
-  height:500px;
 }
 
 .dropdown {
