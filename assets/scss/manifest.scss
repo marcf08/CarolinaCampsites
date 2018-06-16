@@ -1,4 +1,5 @@
 // this file gets watched and compiles into our style.css file.
+
 // to start your sass watcher:
 // 1. cd into "assets"
 // 2. execute: sass --watch scss/manifest.scss:css/style.css --style compressed
@@ -8,4 +9,8 @@
 // non-css generating files
 
 // reusuable components
-@import "modules/old-style.scss";
+@import "modules/layout";
+@import "modules/old-style";
+
+// page-specific styles
+@import "pages/map-app"
