@@ -28,7 +28,9 @@
   </head>
   <body>
     <div id="appWrap" class="slds-grid slds-grid_vertical">
-      <!-- MAIN NAV -->
+      <!--
+      MAIN NAV
+      -->
       <nav id="appNav" class="ui brown inverted top menu">
         <a class="header item" href="#">Campsite Collective</a>
         <a class="item">About</a>
@@ -37,212 +39,215 @@
           <a class="item" id="registerNavButton">Register</a>
         </div>
       </nav>
-      <!-- MAP -->
+      <!--
+      MAP
+      -->
       <div id="mapWrap" class="slds-col">
         <div id="map"></div>
-
-        <div id="confirmModal" class="ui basic modal text-center">
-          <div class="ui icon header">
-            <i class="minus circle icon"></i>
-            <span id="Message_0"></span>
-          </div>
-          <div class="actions text-center">
-            <div class="ui green ok inverted button">
-              <i class="checkmark icon"></i>
-              Got It
-            </div>
+      </div>
+      <!---
+      MODALS
+      -->
+      <div id="confirmModal" class="ui basic modal text-center">
+        <div class="ui icon header">
+          <i class="minus circle icon"></i>
+          <span id="Message_0"></span>
+        </div>
+        <div class="actions text-center">
+          <div class="ui green ok inverted button">
+            <i class="checkmark icon"></i>
+            Got It
           </div>
         </div>
-
-        <div id="errorModal" class="ui basic modal text-center">
-          <div class="ui icon header">
-            <i class="minus circle icon"></i>
-            <span id="msgError"></span>
-          </div>
-          <div class="actions text-center">
-            <div class="ui green ok inverted button">
-              <i class="checkmark icon"></i>
-              Got It
-            </div>
+      </div>
+      <div id="errorModal" class="ui basic modal text-center">
+        <div class="ui icon header">
+          <i class="minus circle icon"></i>
+          <span id="msgError"></span>
+        </div>
+        <div class="actions text-center">
+          <div class="ui green ok inverted button">
+            <i class="checkmark icon"></i>
+            Got It
           </div>
         </div>
-
-
-        <div id="registerModal" class="ui mini modal">
-          <i class="close icon"></i>
-          <div class="header">
+      </div>
+      <div id="registerModal" class="ui mini modal">
+        <i class="close icon"></i>
+        <div class="header">
+          Register
+        </div>
+        <div class="content">
+          <form class="ui form">
+            <div class="field">
+              <label for="password">Name</label>
+              <input name="register name" type="text" class="form-control" id="registerUserRealName" placeholder="Jane Shmoe">
+            </div>
+            <div class="field">
+              <label for="email" id="loginEmail">Email</label>
+              <input name="register email" type="email" id="registerUserEmail" placeholder="email@example.com">
+            </div>
+            <div class="field">
+              <label>State</label>
+              <select id="registerUserLocale">
+                <option value="Alabama">Alabama</option>
+                <option value="Alaska">Alaska</option>
+                <option value="Arkansas">Arkansas</option>
+                <option value="California">California</option>
+                <option value="Colorado">Colorado</option>
+                <option value="Connecticut">Connecticut</option>
+                <option value="Delaware">Delaware</option>
+                <option value="Florida">Florida</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Hawaii">Hawaii</option>
+                <option value="Idaho">Idaho</option>
+                <option value="Illinois">Illinois</option>
+                <option value="Indiana">Indiana</option>
+                <option value="Iowa">Iowa</option>
+                <option value="Kansas">Kansas</option>
+                <option value="Kentucky">Kentucky</option>
+                <option value="Louisiana">Louisiana</option>
+                <option value="Maine">Maine</option>
+                <option value="Maryland">Maryland</option>
+                <option value="Massachusetts">Massachusetts</option>
+                <option value="Michigan">Michigan</option>
+                <option value="Minnesota">Minnesota</option>
+                <option value="Mississippi">Mississippi</option>
+                <option value="Missouri">Missouri</option>
+                <option value="Montana">Montana</option>
+                <option value="Nebraska">Nebraska</option>
+                <option value="Nevada">Nevada</option>
+                <option value="NewHampshire">New Hampshire</option>
+                <option value="NewJersey">New Jersey</option>
+                <option value="NewMexico">New exico</option>
+                <option value="NewYork">New York</option>
+                <option value="NorthCarolina">North Carolina</option>
+                <option value="NorthDakota">North Dakota</option>
+                <option value="Ohio">Ohio</option>
+                <option value="Oklahoma">Oklahoma</option>
+                <option value="Orego">Oregon</option>
+                <option value="Pennsylvania">Pennsylvania</option>
+                <option value="RhodeIsland">Rhode Island</option>
+                <option value="SouthCarolina">South Carolina</option>
+                <option value="SouthDakota">South Dakota</option>
+                <option value="Tennessee">Tennessee</option>
+                <option value="Texas">Texas</option>
+                <option value="Utah">Utah</option>
+                <option value="Vermont">Vermont</option>
+                <option value="Washington">Washington</option>
+                <option value="WestVirginia">West Virginia</option>
+                <option value="Wisconsin">Wisconsin</option>
+                <option value="Wyoming">Wyoming</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="registerUserPassword">Password</label>
+              <input type="password" class="form-control" id="registerUserPassword" placeholder="Password">
+            </div>
+            <div class="field">
+              <label for="registerUserPasswordConfirm">Confirm Password</label>
+              <input type="password" class="form-control" id="registerUserPasswordConfirm" placeholder="Password">
+            </div>
+          </form>
+        </div>
+        <div class="actions">
+          <div id="cancel" class="ui white deny button" onclick="clearIt();">
+            Cancel
+          </div>
+          <div id="registerButton" class="ui positive right labeled icon button" onclick="register(document.getElementById('registerUserEmail').value, document.getElementById('registerUserRealName').value, document.getElementById('registerUserLocale').value, document.getElementById('registerUserPassword').value, document.getElementById('registerUserPasswordConfirm').value);">
             Register
-          </div>
-          <div class="content">
-            <form class="ui form">
-              <div class="field">
-                <label for="password">Name</label>
-                <input name="register name" type="text" class="form-control" id="registerUserRealName" placeholder="Jane Shmoe">
-              </div>
-              <div class="field">
-                <label for="email" id="loginEmail">Email</label>
-                <input name="register email" type="email" id="registerUserEmail" placeholder="email@example.com">
-              </div>
-              <div class="field">
-                <label>State</label>
-                <select id="registerUserLocale">
-                  <option value="Alabama">Alabama</option>
-                  <option value="Alaska">Alaska</option>
-                  <option value="Arkansas">Arkansas</option>
-                  <option value="California">California</option>
-                  <option value="Colorado">Colorado</option>
-                  <option value="Connecticut">Connecticut</option>
-                  <option value="Delaware">Delaware</option>
-                  <option value="Florida">Florida</option>
-                  <option value="Georgia">Georgia</option>
-                  <option value="Hawaii">Hawaii</option>
-                  <option value="Idaho">Idaho</option>
-                  <option value="Illinois">Illinois</option>
-                  <option value="Indiana">Indiana</option>
-                  <option value="Iowa">Iowa</option>
-                  <option value="Kansas">Kansas</option>
-                  <option value="Kentucky">Kentucky</option>
-                  <option value="Louisiana">Louisiana</option>
-                  <option value="Maine">Maine</option>
-                  <option value="Maryland">Maryland</option>
-                  <option value="Massachusetts">Massachusetts</option>
-                  <option value="Michigan">Michigan</option>
-                  <option value="Minnesota">Minnesota</option>
-                  <option value="Mississippi">Mississippi</option>
-                  <option value="Missouri">Missouri</option>
-                  <option value="Montana">Montana</option>
-                  <option value="Nebraska">Nebraska</option>
-                  <option value="Nevada">Nevada</option>
-                  <option value="NewHampshire">New Hampshire</option>
-                  <option value="NewJersey">New Jersey</option>
-                  <option value="NewMexico">New exico</option>
-                  <option value="NewYork">New York</option>
-                  <option value="NorthCarolina">North Carolina</option>
-                  <option value="NorthDakota">North Dakota</option>
-                  <option value="Ohio">Ohio</option>
-                  <option value="Oklahoma">Oklahoma</option>
-                  <option value="Orego">Oregon</option>
-                  <option value="Pennsylvania">Pennsylvania</option>
-                  <option value="RhodeIsland">Rhode Island</option>
-                  <option value="SouthCarolina">South Carolina</option>
-                  <option value="SouthDakota">South Dakota</option>
-                  <option value="Tennessee">Tennessee</option>
-                  <option value="Texas">Texas</option>
-                  <option value="Utah">Utah</option>
-                  <option value="Vermont">Vermont</option>
-                  <option value="Washington">Washington</option>
-                  <option value="WestVirginia">West Virginia</option>
-                  <option value="Wisconsin">Wisconsin</option>
-                  <option value="Wyoming">Wyoming</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="registerUserPassword">Password</label>
-                <input type="password" class="form-control" id="registerUserPassword" placeholder="Password">
-              </div>
-              <div class="field">
-                <label for="registerUserPasswordConfirm">Confirm Password</label>
-                <input type="password" class="form-control" id="registerUserPasswordConfirm" placeholder="Password">
-              </div>
-            </form>
-          </div>
-          <div class="actions">
-            <div id="cancel" class="ui white deny button" onclick="clearIt();">
-              Cancel
-            </div>
-            <div id="registerButton" class="ui positive right labeled icon button" onclick="register(document.getElementById('registerUserEmail').value, document.getElementById('registerUserRealName').value, document.getElementById('registerUserLocale').value, document.getElementById('registerUserPassword').value, document.getElementById('registerUserPasswordConfirm').value);">
-              Register
-              <i class="arrow circle right icon"></i>
-            </div>
+            <i class="arrow circle right icon"></i>
           </div>
         </div>
-        <div id="loginModal" class="ui mini modal">
-          <i class="close icon"></i>
-          <div class="header">
+      </div>
+      <div id="loginModal" class="ui mini modal">
+        <i class="close icon"></i>
+        <div class="header">
+          Sign In
+        </div>
+        <div class="content">
+          <form class="ui form">
+            <div class="field">
+              <label for="email" id="loginEmail">Email</label>
+              <input name="login email" type="email" id="loginUserEmail" placeholder="email@example.com">
+            </div>
+            <div class="field">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="loginUserPassword" placeholder="Password">
+            </div>
+          </form>
+        </div>
+        <div class="actions">
+          <div id="cancel" class="ui white deny button" onclick="clearIt();">
+            Cancel
+          </div>
+          <div id="loginSubmit" class="ui positive right labeled icon button" onclick="signon(document.getElementById('loginUserEmail').value, document.getElementById('loginUserPassword').value);">
             Sign In
-          </div>
-          <div class="content">
-            <form class="ui form">
-              <div class="field">
-                <label for="email" id="loginEmail">Email</label>
-                <input name="login email" type="email" id="loginUserEmail" placeholder="email@example.com">
-              </div>
-              <div class="field">
-                <label for="password">Password</label>
-                <input type="password" class="form-control" id="loginUserPassword" placeholder="Password">
-              </div>
-            </form>
-          </div>
-          <div class="actions">
-            <div id="cancel" class="ui white deny button" onclick="clearIt();">
-              Cancel
-            </div>
-            <div id="loginSubmit" class="ui positive right labeled icon button" onclick="signon(document.getElementById('loginUserEmail').value, document.getElementById('loginUserPassword').value);">
-              Sign In
-              <i class="arrow circle right icon"></i>
-            </div>
+            <i class="arrow circle right icon"></i>
           </div>
         </div>
-        <div id="addToMapModal" class="ui mini modal">
-          <i class="close icon"></i>
-          <div class="header">
-            Add a Resource
-          </div>
-          <div class="content">
-            <form class="ui form">
-              <div class="field">
-                <label for="resourceType">Resource Type</label>
-                <select class="custom-select" id="resourceSelection">
-                  <option value="Campsite">Campsite</option>
-                  <option value="Water">Water</option>
-                </select>
-              </div>
-              <div class="field">
-                <label>Latitude</label>
-                <input id="resourceLatitude" type="number" name="latitude" placeholder="">
-              </div>
-              <div class="field">
-                <label>Longitude</label>
-                <input id="resourceLongitude" type="number" name="longitude" placeholder="">
-              </div>
-            </form>
-          </div>
-          <div class="actions">
-            <div id="cancel" class="ui white deny button">
-              Cancel
+      </div>
+      <div id="addToMapModal" class="ui mini modal">
+        <i class="close icon"></i>
+        <div class="header">
+          Add a Resource
+        </div>
+        <div class="content">
+          <form class="ui form">
+            <div class="field">
+              <label for="resourceType">Resource Type</label>
+              <select class="custom-select" id="resourceSelection">
+                <option value="Campsite">Campsite</option>
+                <option value="Water">Water</option>
+              </select>
             </div>
-            <div id="registerButton" class="ui positive right labeled icon button" onclick="pushPoint(document.getElementById('resourceSelection').value, document.getElementById('resourceLatitude').value, document.getElementById('resourceLongitude').value);">
-              Add
-              <i class="checkmark icon"></i>
+            <div class="field">
+              <label>Latitude</label>
+              <input id="resourceLatitude" type="number" name="latitude" placeholder="">
             </div>
+            <div class="field">
+              <label>Longitude</label>
+              <input id="resourceLongitude" type="number" name="longitude" placeholder="">
+            </div>
+          </form>
+        </div>
+        <div class="actions">
+          <div id="cancel" class="ui white deny button">
+            Cancel
+          </div>
+          <div id="registerButton" class="ui positive right labeled icon button" onclick="pushPoint(document.getElementById('resourceSelection').value, document.getElementById('resourceLatitude').value, document.getElementById('resourceLongitude').value);">
+            Add
+            <i class="checkmark icon"></i>
           </div>
         </div>
-        <div id="ZoomInModal" class="ui basic modal text-center">
-          <div class="ui icon header">
-            <i class="search plus icon"></i>
-            Please zoom in to add a resource!
-          </div>
-          <div class="actions text-center">
-            <div class="ui green ok inverted button">
-              <i class="checkmark icon"></i>
-              Got It
-            </div>
+      </div>
+      <div id="ZoomInModal" class="ui basic modal text-center">
+        <div class="ui icon header">
+          <i class="search plus icon"></i>
+          Please zoom in to add a resource!
+        </div>
+        <div class="actions text-center">
+          <div class="ui green ok inverted button">
+            <i class="checkmark icon"></i>
+            Got It
           </div>
         </div>
-        <div id="notifyModal" class="ui basic modal text-center">
-          <div class="ui icon header">
-            <i class="info circle icon"></i>
-            <span id="logMessage"></span>
-          </div>
-          <div class="actions text-center">
-            <div class="ui green ok inverted button">
-              <i class="checkmark icon"></i>
-              Got It
-            </div>
+      </div>
+      <div id="notifyModal" class="ui basic modal text-center">
+        <div class="ui icon header">
+          <i class="info circle icon"></i>
+          <span id="logMessage"></span>
+        </div>
+        <div class="actions text-center">
+          <div class="ui green ok inverted button">
+            <i class="checkmark icon"></i>
+            Got It
           </div>
         </div>
-        <script type="text/javascript" src="./js/camp.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-        <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script> -->
-      </body>
-    </html>
+      </div>
+    </div>
+    <script type="text/javascript" src="./js/camp.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script> -->
+  </body>
+</html>
