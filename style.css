@@ -3,7 +3,7 @@
 }
 
 .marker {
-  background-image: url('./Assets/tent_marker.svg');
+  background-image: url('./assets/images/tent_marker.svg');
   background-size: cover;
   width: 80px;
   height: 80px;
