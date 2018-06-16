@@ -5,6 +5,7 @@
 // 2. execute: sass --watch scss/manifest.scss:css/style.css --style compressed
 
 // vendor scss
+@import "vendor/slds-grid";
 
 // non-css generating files
 
