@@ -40,17 +40,16 @@
       <!-- MAP -->
       <div id="mapWrap" class="slds-col">
         <div id="map"></div>
-        <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="Message_0">Message</h5>
-              </div>
-              <div class="loader"></div>
-              <p class="text-left" id="msg"></p>
-              <div class="modal-footer" id="modalFooter">
-                <button type="button" class="btn btn-primary" id="cancel" data-dismiss="modal">Got it!</button>
-              </div>
+
+        <div id="confirmModal" class="ui basic modal text-center">
+          <div class="ui icon header">
+            <i class="minus circle icon"></i>
+            <span id="Message_0"></span>
+          </div>
+          <div class="actions text-center">
+            <div class="ui green ok inverted button">
+              <i class="checkmark icon"></i>
+              Got It
             </div>
           </div>
         </div>
