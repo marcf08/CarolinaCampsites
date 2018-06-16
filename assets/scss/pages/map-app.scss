@@ -1,28 +1,13 @@
-.slds-grid {
-  display: -ms-flexbox;
-  display: flex;
+#mapWrap {
+  position: relative;
+  height: 100%;
+  width: 100%;
 }
 
-.slds-grid_vertical,
-.slds-grid--vertical {
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.slds-col,
-[class*="slds-col_padded"],
-[class*="slds-col--padded"] {
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-}
-
-.slds-shrink-none {
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-}
-
-.slds-grid_align-center,
-.slds-grid--align-center {
-  -ms-flex-pack: center;
-  justify-content: center;
+#map {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
 }

@@ -1,1 +1,29 @@
 // grid utility classes from salesforce lightning design system grid: http://www.lightningdesignsystem.com/utilities/grid/
+.slds-grid {
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.slds-grid_vertical,
+.slds-grid--vertical {
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.slds-col,
+[class*="slds-col_padded"],
+[class*="slds-col--padded"] {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+}
+
+.slds-shrink-none {
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.slds-grid_align-center,
+.slds-grid--align-center {
+  -ms-flex-pack: center;
+  justify-content: center;
+}
