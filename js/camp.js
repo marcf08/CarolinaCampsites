@@ -13,7 +13,7 @@ map = new mapboxgl.Map({
 map.on('mouseup', function(e) {
   if (e.originalEvent.button == 2) {
     if (map.getZoom() < 15.5) {
-      $('#ZoomInModal').modal('show');
+      $('#ZoomInModal').modal('show');      ;
       return;
     }
     let tempLat = e.lngLat.lat;

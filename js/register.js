@@ -77,3 +77,8 @@ let clearIt = function() {
   document.getElementById('registerUserPassword').placeholder = 'Password';
   document.getElementById('registerUserPasswordConfirm').placeholder = 'Password';
 }
+
+
+$(document).on("click", "#registerNavButton", function() {
+  $('#registerModal').modal('show');
+});

@@ -1,6 +1,6 @@
 let pushPoint = function(resource, lat, lng) {
   if (localStorage.getItem('token') == '' || localStorage.getItem('token') == null) {
-      $('#logMessage').text('You must be logged in to add a campsite or resource.');
+      $('#logMessage').text('Please log in to add a resource.');
       $('#notifyModal').modal('show');
       return;
   }

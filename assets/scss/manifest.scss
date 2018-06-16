@@ -5,6 +5,8 @@
 // 2. execute: sass --watch scss/manifest.scss:css/style.css --style compressed
 
 // vendor scss
+@import "vendor/bootstrap-spacing";
+@import "vendor/bootstrap-text";
 @import "vendor/slds-grid";
 @import "modules/old-style";
 
@@ -13,6 +15,7 @@
 // reusuable components
 @import "modules/layout";
 @import "modules/markers";
+@import "modules/typography";
 
 // page-specific styles
 @import "pages/map-app"
