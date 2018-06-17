@@ -1,0 +1,33 @@
+%htag {
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+    line-height: 1.28571429em;
+    margin: calc(2rem - .14285714em) 0 1rem;
+    font-weight: 700;
+    padding: 0;
+}
+
+.h1 {
+  @extend %htag;
+  min-height: 1rem;
+  font-size: 2rem !important;
+}
+
+.h2 {
+  @extend %htag;
+  font-size: 1.71428571rem !important;
+}
+
+.h3 {
+  @extend %htag;
+  font-size: 1.28571429rem !important;
+}
+
+.h4 {
+  @extend %htag;
+  font-size: 1.07142857rem !important;
+}
+
+.h5 {
+  @extend %htag;
+  font-size: 1rem !important;
+}

@@ -96,3 +96,7 @@ var isLoggedIn = function() {
     });
   }
 }
+
+$(document).on("click", "#loginLogout", function() {
+  $('#loginModal').modal('show');
+});
