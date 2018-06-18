@@ -61,7 +61,7 @@ var signon = function(username, password) {
           }
         });
       });
-      console.log(result);
+      console.log("test" + result);
       $('#loginModal').modal('hide');
       $('#loginLogout').text('Logout');
       $('#loginLogout').attr("data-toggle", "");
@@ -69,9 +69,9 @@ var signon = function(username, password) {
       $('#loginLogout').attr("onclick", "logout()");
     },
     onFailure: function(err) {
-      console.log(err);
       $('#msgError').text(err);
       $('#errorModal').show();
+      console.log(err);
     },
   });
 }
