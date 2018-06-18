@@ -1,6 +1,8 @@
 /**
 Used to sign in a user and establish a session with Cognito.
 **/
+let notConfirmed = "Please confirm your email before adding any campsites.";
+
 var cognitoUser;
 var poolData = {
   UserPoolId: 'us-east-1_evimZrQDn',
@@ -29,6 +31,7 @@ var signon = function(username, password) {
     Username: username,
     Pool: userPool
   };
+
   cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
   cognitoUser.authenticateUser(authenticationDetails, {
     onSuccess: function(result) {
@@ -39,13 +42,14 @@ var signon = function(username, password) {
 
       cognitoUser.getSession(function(err, session) {
         if (err) {
-          alert(err.message || JSON.stringify(err));
+          console.log(err);
           return;
         }
-        //console.log('session validity: ' + session.isValid());
         cognitoUser.getUserAttributes(function(err, attributes) {
           if (err) {
-            // Handle error
+            console.log(err);
+            $('#errorModal').text(err);
+            $('#errorModal').show();
           } else {
             console.log(attributes);
           }
@@ -57,7 +61,7 @@ var signon = function(username, password) {
           }
         });
       });
-      //console.log(result);
+      console.log(result);
       $('#loginModal').modal('hide');
       $('#loginLogout').text('Logout');
       $('#loginLogout').attr("data-toggle", "");
@@ -65,10 +69,9 @@ var signon = function(username, password) {
       $('#loginLogout').attr("onclick", "logout()");
     },
     onFailure: function(err) {
-      console.log("auth details " + authenticationDetails);
-      console.log("auth details user name " + username)
       console.log(err);
-      alert(err);
+      $('#msgError').text(err);
+      $('#errorModal').show();
     },
   });
 }
@@ -98,5 +101,7 @@ var isLoggedIn = function() {
 }
 
 $(document).on("click", "#loginLogout", function() {
-  $('#loginModal').modal('show');
+  if (cognitoUser == null || cognitoUser == undefined) {
+    $('#loginModal').modal('show');
+}
 });
