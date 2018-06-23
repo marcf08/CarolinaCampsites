@@ -18,7 +18,7 @@ var userPool = new AmazonCognitoIdentity.CognitoUserPool(data);
 
 let register = function(username, registerUserRealName, registerUserLocale, password, confirmPassword) {
   if (username == "" || password == "" || confirmPassword == "") {
-    $('#registerModal').modal('hide');
+    //$('#registerModal').modal('hide');
     $('#errorModal').modal('show');
     $('#msgError').text(badInput);
     return;
@@ -26,14 +26,14 @@ let register = function(username, registerUserRealName, registerUserLocale, pass
   if (password != confirmPassword) {
     console.log(password);
     console.log(confirmPassword);
-    $('#registerModal').modal('hide');
+    //$('#registerModal').modal('hide');
     $('#errorModal').modal('show');
     $('#msgError').text(noMatch);
     return;
   }
   if (password === confirmPassword) {
     $('#registerModal').modal('hide');
-    
+
     let dataName = {
       Name: 'name',
       Value: registerUserRealName
@@ -60,7 +60,6 @@ let register = function(username, registerUserRealName, registerUserLocale, pass
       }
       $('#msgConfirm').text(success);
       $('#confirmModal').modal('show');
-      clearIt();
       return;
     });
   }
@@ -69,7 +68,7 @@ let register = function(username, registerUserRealName, registerUserLocale, pass
 let clearIt = function() {
   document.getElementById('registerUserEmail').value = '';
   document.getElementById('registerUserPassword').value = '';
-  document.getElementById('msg').innerHTML = '';
+  //document.getElementById('msg').innerHTML = '';
   document.getElementById('registerUserPasswordConfirm').value = "";
   document.getElementById('registerUserEmail').placeholder = 'example@example.com';
   document.getElementById('registerUserPassword').placeholder = 'Password';

@@ -48,8 +48,6 @@ var signon = function(username, password) {
         cognitoUser.getUserAttributes(function(err, attributes) {
           if (err) {
             console.log(err);
-            $('#errorModal').text(err);
-            $('#errorModal').show();
           } else {
             console.log(attributes);
           }
@@ -67,11 +65,13 @@ var signon = function(username, password) {
       $('#loginLogout').attr("data-toggle", "");
       $('#loginLogout').attr("data-target", "");
       $('#loginLogout').attr("onclick", "logout()");
+      return;
     },
     onFailure: function(err) {
-      $('#msgError').text(err);
-      $('#errorModal').show();
       console.log(err);
+      $('#msgError').text(validationError + " " + err);
+      $('#errorModal').modal('show');
+      return;
     },
   });
 }
