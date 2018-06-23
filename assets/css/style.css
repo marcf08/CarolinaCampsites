@@ -427,6 +427,14 @@ html, body {
   cursor: pointer
 }
 
+.marker-water {
+  background-image: url("../img/marker_water.svg");
+  background-size: cover;
+  width: 38px;
+  height: 50px;
+  cursor: pointer
+}
+
 .h1, .h2, .h3, .h4, .h5 {
   font-family: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
   line-height: 1.28571429em;

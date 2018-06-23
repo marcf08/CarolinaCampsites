@@ -26,7 +26,12 @@ map.on('mouseup', function(e) {
 
 let addMarker = function(resourceType, lat, lng, popup) {
   let el = document.createElement('div');
-  el.className = 'marker';
+  if (resourceType == "Campsite") {
+    el.className = 'marker';
+  }
+  if (resourceType == "Water") {
+    el.className = 'marker-water';
+  }
   let marker = new mapboxgl.Marker(el)
     .setLngLat([lng, lat])
     .setPopup(popup)

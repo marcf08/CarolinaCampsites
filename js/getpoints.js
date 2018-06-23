@@ -28,5 +28,3 @@ $(document).ready(function() {
     }
   });
 });
-
-//let populateMap = function () { ... }

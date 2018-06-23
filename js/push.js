@@ -1,27 +1,5 @@
 let pushPoint = function(resource, lat, lng) {
-  if (resource !== 'Campsite' || resource !== 'Water') {
-    $('#logMessage').text('You can only add either water or a campsite.');
-    $('#notifyModal').modal('show');
-    return;
-  }
-
-  if (!(lat >= -90 && lat <= 90)) {
-    $('#logMessage').text('Invalid latitude.');
-    $('#notifyModal').modal('show');
-    return;
-  }
-
-  if (!(lng >= -180 && lng <= 180)) {
-    $('#logMessage').text('Invalid longitude.');
-    $('#notifyModal').modal('show');
-    return;
-  }
-
-  if (localStorage.getItem('token') == '' || localStorage.getItem('token') == null) {
-      $('#logMessage').text('Please log in to add a resource.');
-      $('#notifyModal').modal('show');
-      return;
-  }
+  console.log(resource);
   console.log("lat " + lat);
   console.log("lng " + lng);
   console.log("resource " + resource);
