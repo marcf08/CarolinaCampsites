@@ -1,3 +1,5 @@
+let error_invalid_coords = "Invalid coordinates. Please use a valid latitude and / or longitude.";
+
 let pushPoint = function(resource, lat, lng) {
   console.log(resource);
   console.log("lat " + lat);
@@ -22,6 +24,11 @@ let pushPoint = function(resource, lat, lng) {
     data: JSON.stringify(data),
     success: function(response) {
       console.log(response);
+      if (response.status == "invalid latitude" || response.status == "invalid longitude") {
+        $('#errorModal').modal('show');
+        $('#msgError').text(error_invalid_coords);
+        return;
+      }
       addMarker(resource, lat, lng);
     },
     error: function(xhr, status) {
