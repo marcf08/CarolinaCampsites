@@ -32,7 +32,10 @@ let pushPoint = function(resource, lat, lng) {
       addMarker(resource, lat, lng);
     },
     error: function(xhr, status) {
-      alert("error");
+      console.log(status);
+      console.log(xhr);
+      $('#msgError').text('Your session has expired. Please log in again.');
+      $('#errorModal').modal('show');
     }
   });
 }
