@@ -100,8 +100,20 @@ var isLoggedIn = function() {
   }
 }
 
-$(document).on("click", "#loginLogout", function() {
+/*$(document).on("click", "#loginLogout", function() {
   if (cognitoUser == null || cognitoUser == undefined) {
     $('#loginModal').modal('show');
 }
+});*/
+
+// Once the page is loaded add an onclick function to loginlogout div
+$( document ).ready(function() {
+  if (cognitoUser == null || cognitoUser == undefined) {
+    $('#loginLogout').attr("onclick", "login()");
+  }
 });
+
+// funtion that shows login modal
+function login() {
+  $('#loginModal').modal('show');
+}
