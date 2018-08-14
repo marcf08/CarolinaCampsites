@@ -68,13 +68,11 @@ let register = function(username, registerUserRealName, registerUserLocale, pass
 let clearIt = function() {
   document.getElementById('registerUserEmail').value = '';
   document.getElementById('registerUserPassword').value = '';
-  //document.getElementById('msg').innerHTML = '';
   document.getElementById('registerUserPasswordConfirm').value = "";
   document.getElementById('registerUserEmail').placeholder = 'example@example.com';
   document.getElementById('registerUserPassword').placeholder = 'Password';
   document.getElementById('registerUserPasswordConfirm').placeholder = 'Password';
 }
-
 
 $(document).on("click", "#registerNavButton", function() {
   $('#registerModal').modal('show');

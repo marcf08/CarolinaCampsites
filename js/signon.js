@@ -10,7 +10,8 @@ var poolData = {
 }
 
 window.onload = function() {
-  var userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
+  //NOTE THAT THIS WAS CHANGED FROM VAR TO LET
+  let userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
   cognitoUser = userPool.getCurrentUser();
   if (cognitoUser != undefined || cognitoUser != null) {
     $('#loginLogout').text('Logout');
