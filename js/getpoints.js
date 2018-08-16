@@ -14,10 +14,12 @@ $(document).ready(function() {
       console.log(response.count);
       for (let i = 0; i < response.count; i++) {
         popups[i] = new mapboxgl.Popup({offset: 0}).setHTML(
-          "<strong>Point ID:</strong> " + response.points[i].pid + "<br>" +
-          "<strong>Resource:</strong> " + response.points[i].resource + "<br>" +
-          "<strong>Latitude:</strong> " + response.points[i].lat + "<br>" +
-          "<strong>Longitude:</strong> " + response.points[i].lng + "<br>"
+          "<div class='infowindow_header'>" + response.points[i].resource + "</div>" +
+          "<div class='infowindow_body'>" +
+            "<div class='infowindow_item'><label>Point ID:</label><div> " + response.points[i].pid + "</div></div>" +
+            "<div class='infowindow_item'><label>Latitude:</label><div> " + response.points[i].lat + "</div></div>" +
+            "<div class='infowindow_item'><label>Longitude:</label><div> " + response.points[i].lng + "</div></div>" +
+          "</div>"
         );
         addMarker(response.points[i].resource, response.points[i].lat, response.points[i].lng, popups[i]);
       }
