@@ -1,0 +1,17 @@
+#appNav {
+    background-color: $color-background-inverse;
+    border-radius: 0;
+    margin: 0;
+    position: relative;
+    z-index: 50;
+}
+  
+#logo {
+    margin-left: 10px;
+    
+    img {
+        display: block;
+        height: auto;
+        width: 192px;
+    }
+}
