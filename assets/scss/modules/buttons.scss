@@ -1,0 +1,9 @@
+.ui.basic.inverted.button, 
+.ui.basic.inverted.buttons .button {
+    box-shadow: 0 0 0 1px rgba(255,255,255,.13) inset!important;
+
+    &:hover,
+    &:focus {
+        box-shadow: 0 0 0 1px rgba(255,255,255,.65) inset!important;
+    }
+}
