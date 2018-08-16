@@ -1,0 +1,8 @@
+/* turn color variables into modular, human-readable variables */
+@import './colors';
+
+$color-background-inverse: $tuatara;
+$color-text-default: $tuatara-text;
+$color-text-weak: $friar-gray;
+
+$font-family-primary: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;

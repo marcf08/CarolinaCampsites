@@ -1,0 +1,29 @@
+@import './variables';
+
+.infowindow_header {
+    color: $color-text-default;
+    font-size: 21px;
+    line-height: 1;
+    margin-bottom: 15px;
+}
+
+.infowindow_item {
+    color: $color-text-weak;
+    display: flex;
+    font-size: 13px;
+    line-height: 1.4;
+    margin-bottom: 2px;
+
+    label {
+        font-weight: bold;
+        min-width: 70px;
+    }
+}
+
+// mapbox overrides
+
+.mapboxgl-popup-content {
+    font-family: $font-family-primary;
+    padding: 30px;
+    border-radius: 2px;
+}
