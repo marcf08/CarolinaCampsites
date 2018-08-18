@@ -9,6 +9,8 @@ var poolData = {
   ClientId: '689in92k06pd12lu9um7tl4bmb'
 }
 
+var loginInTooltip = document.getElementById('signInTooltip');
+
 window.onload = function() {
   //NOTE THAT THIS WAS CHANGED FROM VAR TO LET
   let userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
@@ -92,9 +94,13 @@ var logout = function() {
   localStorage.removeItem('token');
   localStorage.removeItem('email');
   location.reload();
+  loginInTooltip.style.display = '';
+  console.log('show tooltip');
 }
 
 var isLoggedIn = function() {
+  loginInTooltip.style.display = 'none';
+  console.log('hide tooltip');
   let userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
   cognitoUser = userPool.getCurrentUser();
   if (cognitoUser != undefined) {
