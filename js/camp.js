@@ -1,8 +1,7 @@
 /**
 Initialize mapbox
 **/
-
-var addMode;
+var addResourceContainerInner = document.getElementById('addResourceContainerInner');
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFyY2YwOCIsImEiOiJjamh4Z2d5ZzgwYmlqM3dvNmxmZnRqYnIxIn0.7o_eO-2qNGzCFlfOjsqZSQ';
 map = new mapboxgl.Map({
@@ -13,10 +12,7 @@ map = new mapboxgl.Map({
 });
 
 map.on('mouseup', function(e) {
-  //Remember mouse button == 2 is right click
-  //Mouse button == 1 is center click
-  //Mouse button == 0 is left click
-  if (e.originalEvent.button == 0) {
+  if (e.originalEvent.button == 2) {
     if (map.getZoom() < 15.5) {
       $('#ZoomInModal').modal('show');      ;
       return;
@@ -30,24 +26,12 @@ map.on('mouseup', function(e) {
 });
 
 map.on('zoomend', function(e) {
-  if ((map.getZoom() < 15.5) && isLoggedIn()) {
-    addMode = true;
-    //Then user can click the "Plus button"
-  } if (map.getZoom() < 15.5 && !isLoggedIn())
-    addMode = false;
-   else {
-    addMode = false;
-    //User cannot click the "Plus button"
+  if (map.getZoom() < 15.5) {
+    addResourceContainerInner.classList.remove('can-add');
+  } else {
+    addResourceContainerInner.classList.add('can-add');
   }
 })
-
-map.on('mouseover', function(e) {
-  console.log("test");
-  if (addMode) {
-      console.log("You can do it");
-  }
-})
-
 
 let addMarker = function(resourceType, lat, lng, popup) {
   let el = document.createElement('div');
@@ -61,4 +45,16 @@ let addMarker = function(resourceType, lat, lng, popup) {
     .setLngLat([lng, lat])
     .setPopup(popup)
     .addTo(map);
+}
+
+function toggleAddResourceFlow() {
+  if ( $('#appWrap').hasClass('is-adding-resource') ) {
+    $('#addResourceButtonTooltip').addClass('visible');
+    $('#addResourceButtonZoomTooltip').removeClass('visible');
+    $('#appWrap').removeClass('is-adding-resource');
+  } else {
+    $('#appWrap').addClass('is-adding-resource');
+    $('#addResourceButtonZoomTooltip').addClass('visible');
+    $('#addResourceButtonTooltip').removeClass('visible');
+  }
 }
