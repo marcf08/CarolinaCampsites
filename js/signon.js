@@ -8,8 +8,7 @@ var poolData = {
   UserPoolId: 'us-east-1_evimZrQDn',
   ClientId: '689in92k06pd12lu9um7tl4bmb'
 }
-
-var loginInTooltip = document.getElementById('signInTooltip');
+var loginInTooltip;
 
 window.onload = function() {
   //NOTE THAT THIS WAS CHANGED FROM VAR TO LET
@@ -73,6 +72,8 @@ var signon = function(username, password) {
       $('#loginLogout').attr("data-toggle", "");
       $('#loginLogout').attr("data-target", "");
       $('#loginLogout').attr("onclick", "logout()");
+      loginInTooltip.classList.remove('visible');
+      //loginInTooltip.style.display = 'none';
       return;
     },
     onFailure: function(err) {
@@ -93,9 +94,9 @@ var logout = function() {
   cognitoUser.signOut();
   localStorage.removeItem('token');
   localStorage.removeItem('email');
+  //loginInTooltip.style.display = '';
+  //console.log('show tooltip');
   location.reload();
-  loginInTooltip.style.display = '';
-  console.log('show tooltip');
 }
 
 var isLoggedIn = function() {
@@ -126,9 +127,15 @@ var isLoggedIn = function() {
 });*/
 
 // Once the page is loaded add an onclick function to loginlogout div
-$( document ).ready(function() {
+$(document).ready(function() {
+  loginInTooltip = document.getElementById('signInTooltip');
+
+  //If user is NOT logged in
   if (cognitoUser == null || cognitoUser == undefined) {
     $('#loginLogout').attr("onclick", "login()");
+    //Show tooltip
+    console.log('THIS MEANS USER IS NOT LOGGED IN');
+    loginInTooltip.classList.add('visible');
   }
 });
 
