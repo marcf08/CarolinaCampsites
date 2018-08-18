@@ -29,8 +29,6 @@ map.on('mouseup', function(e) {
   }
 });
 
-
-
 map.on('zoomend', function(e) {
   if ((map.getZoom() < 15.5) && isLoggedIn()) {
     addMode = true;
@@ -49,9 +47,6 @@ map.on('mouseover', function(e) {
       console.log("You can do it");
   }
 })
-
-//TODO: Function for clicking on the "plus button" and entering in the mode
-
 
 
 let addMarker = function(resourceType, lat, lng, popup) {
