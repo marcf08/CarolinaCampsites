@@ -2,6 +2,8 @@
 Initialize mapbox
 **/
 
+var addMode;
+
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFyY2YwOCIsImEiOiJjamh4Z2d5ZzgwYmlqM3dvNmxmZnRqYnIxIn0.7o_eO-2qNGzCFlfOjsqZSQ';
 map = new mapboxgl.Map({
   container: 'map',
@@ -11,7 +13,10 @@ map = new mapboxgl.Map({
 });
 
 map.on('mouseup', function(e) {
-  if (e.originalEvent.button == 2) {
+  //Remember mouse button == 2 is right click
+  //Mouse button == 1 is center click
+  //Mouse button == 0 is left click
+  if (e.originalEvent.button == 0) {
     if (map.getZoom() < 15.5) {
       $('#ZoomInModal').modal('show');      ;
       return;
@@ -24,13 +29,30 @@ map.on('mouseup', function(e) {
   }
 });
 
+
+
 map.on('zoomend', function(e) {
-  if (map.getZoom() < 15.5) {
-    //do something
-  } else {
-  //do something else 
+  if ((map.getZoom() < 15.5) && isLoggedIn()) {
+    addMode = true;
+    //Then user can click the "Plus button"
+  } if (map.getZoom() < 15.5 && !isLoggedIn())
+    addMode = false;
+   else {
+    addMode = false;
+    //User cannot click the "Plus button"
   }
 })
+
+map.on('mouseover', function(e) {
+  console.log("test");
+  if (addMode) {
+      console.log("You can do it");
+  }
+})
+
+//TODO: Function for clicking on the "plus button" and entering in the mode
+
+
 
 let addMarker = function(resourceType, lat, lng, popup) {
   let el = document.createElement('div');
