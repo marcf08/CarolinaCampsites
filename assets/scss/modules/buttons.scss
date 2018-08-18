@@ -23,13 +23,14 @@
     transform: translateY(0);
     transition: 0.2s all;
 
-    .material-icons {
-        color: $tree-poppy;
-        font-size: 48px;
-        display: block;
-        line-height: 1;
-        transform: rotate(0);
-        transition: all .25s;
+    &:disabled {
+        cursor: disabled;
+        pointer-events: none;
+        opacity: 0.8;
+
+        .material-icons {
+            color: #ccc;
+        }
     }
 
     &:hover {
@@ -40,5 +41,14 @@
 
     &:focus {
         outline: 0;
+    }
+
+    .material-icons {
+        color: $tree-poppy;
+        font-size: 48px;
+        display: block;
+        line-height: 1;
+        transform: rotate(0);
+        transition: all .25s;
     }
 }
