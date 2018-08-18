@@ -12,3 +12,22 @@
   left: 0;
   top: 0; 
 }
+
+#addResourceContainer {
+  display: none;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 10;
+
+  &.visible {
+    display: block;
+  }
+}
+
+#addResourceContainerInner {
+
+  &.can-edit {
+    
+  }
+}

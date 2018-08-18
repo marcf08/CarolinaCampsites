@@ -12,9 +12,6 @@
 
 .big-map-button {
     cursor: pointer;
-    position: absolute;
-    top: 24px;
-    left: 24px;
     width: 69px;
     height: 69px;
     border-radius: 69px;
@@ -31,6 +28,8 @@
         font-size: 48px;
         display: block;
         line-height: 1;
+        transform: rotate(0);
+        transition: all .25s;
     }
 
     &:hover {

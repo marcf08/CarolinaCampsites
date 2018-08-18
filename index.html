@@ -62,11 +62,24 @@
       -->
       <div id="mapWrap" class="slds-col">
         <div id="map"></div>
-        <button id="addResourceButton" class="big-map-button">
-            <i class="material-icons">
-              add
-            </i>
-        </button>
+        <div id="addResourceContainer">
+          <div id="addResourceContainerInner">
+            <div style="position: relative;">
+              <button id="addResourceButton" class="big-map-button" onclick="toggleAddResourceFlow()">
+                  <i class="material-icons">
+                    add
+                  </i>
+              </button>
+              <div class="ui inverted popup top left transition visible" style="top: 0;left: calc(100% + 8px);max-width: none;" id="addResourceButtonTooltip">
+                Add a Resource
+              </div>
+              </button>
+              <div class="ui inverted popup top left transition" style="top: 0;left: calc(100% + 8px);max-width: none;" id="addResourceButtonZoomTooltip">
+                Please <strong>zoom in</strong> before adding resources to the map.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <!---
       MODALS

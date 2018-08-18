@@ -9,6 +9,7 @@ var poolData = {
   ClientId: '689in92k06pd12lu9um7tl4bmb'
 }
 var loginInTooltip;
+var addResourceContainer;
 
 window.onload = function() {
   //NOTE THAT THIS WAS CHANGED FROM VAR TO LET
@@ -73,6 +74,7 @@ var signon = function(username, password) {
       $('#loginLogout').attr("data-target", "");
       $('#loginLogout').attr("onclick", "logout()");
       loginInTooltip.classList.remove('visible');
+      addResourceContainer.classList.add('visible');
       //loginInTooltip.style.display = 'none';
       return;
     },
@@ -129,6 +131,7 @@ var isLoggedIn = function() {
 // Once the page is loaded add an onclick function to loginlogout div
 $(document).ready(function() {
   loginInTooltip = document.getElementById('signInTooltip');
+  addResourceContainer = document.getElementById('addResourceContainer');
 
   //If user is NOT logged in
   if (cognitoUser == null || cognitoUser == undefined) {
@@ -136,6 +139,7 @@ $(document).ready(function() {
     //Show tooltip
     console.log('THIS MEANS USER IS NOT LOGGED IN');
     loginInTooltip.classList.add('visible');
+    addResourceContainer.classList.remove('visible');
   }
 });
 

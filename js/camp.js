@@ -1,6 +1,7 @@
 /**
 Initialize mapbox
 **/
+var addResourceContainerInner = document.getElementById('addResourceContainerInner');
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFyY2YwOCIsImEiOiJjamh4Z2d5ZzgwYmlqM3dvNmxmZnRqYnIxIn0.7o_eO-2qNGzCFlfOjsqZSQ';
 map = new mapboxgl.Map({
@@ -26,9 +27,9 @@ map.on('mouseup', function(e) {
 
 map.on('zoomend', function(e) {
   if (map.getZoom() < 15.5) {
-    //do something
+    addResourceContainerInner.classList.remove('can-add');
   } else {
-  //do something else 
+    addResourceContainerInner.classList.add('can-add');
   }
 })
 
@@ -44,4 +45,16 @@ let addMarker = function(resourceType, lat, lng, popup) {
     .setLngLat([lng, lat])
     .setPopup(popup)
     .addTo(map);
+}
+
+function toggleAddResourceFlow() {
+  if ( $('#appWrap').hasClass('is-adding-resource') ) {
+    $('#addResourceButtonTooltip').addClass('visible');
+    $('#addResourceButtonZoomTooltip').removeClass('visible');
+    $('#appWrap').removeClass('is-adding-resource');
+  } else {
+    $('#appWrap').addClass('is-adding-resource');
+    $('#addResourceButtonZoomTooltip').addClass('visible');
+    $('#addResourceButtonTooltip').removeClass('visible');
+  }
 }
