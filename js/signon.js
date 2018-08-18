@@ -103,7 +103,7 @@ var logout = function() {
 
 var isLoggedIn = function() {
   loginInTooltip.style.display = 'none';
-  //console.log('hide tooltip');
+  console.log('hide tooltip');
   let userPool = new AWSCognito.CognitoIdentityServiceProvider.CognitoUserPool(poolData);
   cognitoUser = userPool.getCurrentUser();
   if (cognitoUser != undefined) {
