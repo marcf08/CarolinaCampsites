@@ -10,6 +10,12 @@ html, body {
 #appWrap {
   height: 100%;
   width: 100%;
+
+  &.is-adding-resource {
+    .mapboxgl-canvas {
+      cursor: crosshair !important;
+    }
+  }
 }
 
 .flex {
@@ -18,4 +24,8 @@ html, body {
   display: -ms-flexbox;      /* TWEENER - IE 10 */
   display: -webkit-flex;  
   display: flex;
+}
+
+.flex-align-vertical-center {
+  align-items: center;
 }

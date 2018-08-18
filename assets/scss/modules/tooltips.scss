@@ -1,10 +1,12 @@
- .ui.inverted.popup {
+@import '../modules/colors';
+
+.ui.inverted.popup {
     background: $tooltip-background-color;
     font-size: 13px;
     padding: 18px 28px;
  }
 
- .ui.bottom.right.popup {
+.ui.bottom.right.popup {
     border-radius: $tooltip-border-radius 0 $tooltip-border-radius $tooltip-border-radius;
 
     &:before {
@@ -17,4 +19,42 @@
         top: -12px;
         right: -1px;    
     }
- }
+}
+
+.ui.middle.left.popup {
+    border-radius: $tooltip-border-radius;
+
+    &:before {
+        background: transparent;
+        width: 0; 
+        height: 0; 
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-right: 10px solid $tooltip-background-color;
+        top: 50%;
+        margin-top: -10px;
+        left: -10px;
+        transform: none;
+    }
+}
+
+%resourceButtonTooltip {
+    position: relative;
+    margin-left: 1.5rem;
+    margin-bottom: 0;
+}
+
+#addResourceButtonZoomTooltip {
+    @extend %resourceButtonTooltip;
+
+    .material-icons {
+        font-size: 18px;
+        line-height: 1;
+        display: block;
+        color: $tree-poppy;
+    }
+}
+
+#addResourceButtonTooltip {
+    @extend %resourceButtonTooltip;
+}

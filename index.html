@@ -64,18 +64,30 @@
         <div id="map"></div>
         <div id="addResourceContainer">
           <div id="addResourceContainerInner">
-            <div style="position: relative;">
-              <button id="addResourceButton" class="big-map-button" onclick="toggleAddResourceFlow()">
+            <div class="flex flex-align-vertical-center" style="position: relative;">
+              <div>
+                <button id="addResourceButton" class="big-map-button" onclick="toggleAddResourceFlow()" disabled>
                   <i class="material-icons">
                     add
                   </i>
-              </button>
-              <div class="ui inverted popup top left transition visible" style="top: 0;left: calc(100% + 8px);max-width: none;" id="addResourceButtonTooltip">
-                Add a Resource
+                </button>
               </div>
-              </button>
-              <div class="ui inverted popup top left transition" style="top: 0;left: calc(100% + 8px);max-width: none;" id="addResourceButtonZoomTooltip">
-                Please <strong>zoom in</strong> before adding resources to the map.
+              <div>
+                <div class="ui inverted popup middle left transition" style="max-width: none;" id="addResourceButtonTooltip">
+                  Add a Resource
+                </div>
+              </div>
+              <div>
+                <div class="ui inverted popup middle left transition visible" style="max-width: none;" id="addResourceButtonZoomTooltip">
+                  <div class="flex flex-align-vertical-center">
+                    <div style="margin-right: 1rem;">
+                      <i class="material-icons">
+                        zoom_in
+                      </i>
+                    </div>
+                    <div>Please <strong>zoom in</strong> before adding resources</div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

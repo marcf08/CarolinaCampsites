@@ -27,9 +27,13 @@ map.on('mouseup', function(e) {
 
 map.on('zoomend', function(e) {
   if (map.getZoom() < 15.5) {
-    addResourceContainerInner.classList.remove('can-add');
+    $('#addResourceButton').prop("disabled", true);
+    $('#addResourceButtonTooltip').removeClass('visible');
+    $('#addResourceButtonZoomTooltip').addClass('visible');
   } else {
-    addResourceContainerInner.classList.add('can-add');
+    $('#addResourceButton').prop("disabled", false);
+    $('#addResourceButtonTooltip').addClass('visible');
+    $('#addResourceButtonZoomTooltip').removeClass('visible');
   }
 })
 
