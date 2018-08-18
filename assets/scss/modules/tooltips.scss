@@ -1,0 +1,20 @@
+ .ui.inverted.popup {
+    background: $tooltip-background-color;
+    font-size: 13px;
+    padding: 18px 28px;
+ }
+
+ .ui.bottom.right.popup {
+    border-radius: $tooltip-border-radius 0 $tooltip-border-radius $tooltip-border-radius;
+
+    &:before {
+        background: transparent;
+        width: 0; 
+        height: 0; 
+        border-top: 9px solid transparent;
+        border-bottom: 9px solid transparent;
+        border-left: 9px solid $tooltip-background-color;
+        top: -12px;
+        right: -1px;    
+    }
+ }
