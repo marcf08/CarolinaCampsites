@@ -27,7 +27,7 @@ let forgotPwGetVerification = function(username) {
     onFailure: function(err) {
       alert(err);
     },
-    inputVerificationCode() { // this is optional, and likely won't be implemented as in AWS's example (i.e, prompt to get info)
+    inputVerificationCode() {
       let verificationCode = prompt('Please input verification code ', '');
       let newPassword = prompt('Enter new password ', '');
       cognitoUser.confirmPassword(verificationCode, newPassword, this);

@@ -46,11 +46,17 @@ var signon = function(username, password) {
           console.log(err);
           return;
         }
-        cognitoUser.getUserAttributes(function(err, attributes) {
+        cognitoUser.getUserAttributes(function(err, result) {
           if (err) {
             console.log(err);
           } else {
-            console.log(attributes);
+            for (i = 0; i < result.length; i++) {
+              if (result[i].getName() === 'email') {
+                localStorage.setItem('email', result[i].getValue());
+                console.log('success');
+              }
+              //console.log('attribute ' + result[i].getName() + ' has value ' + result[i].getValue());
+            }
           }
         });
         AWS.config.credentials = new AWS.CognitoIdentityCredentials({
@@ -60,7 +66,6 @@ var signon = function(username, password) {
           }
         });
       });
-      console.log("test" + result);
       $('#loginModal').modal('hide');
       $('#loginLogout').text('Logout');
       $('#loginLogout').attr("data-toggle", "");
@@ -77,9 +82,15 @@ var signon = function(username, password) {
   });
 }
 
+var getUserEmail = function() {
+  let email = localStorage.getItem('email').replace(/^"(.*)"$/, '$1');
+  return email;
+}
+
 var logout = function() {
   cognitoUser.signOut();
   localStorage.removeItem('token');
+  localStorage.removeItem('email');
   location.reload();
 }
 
@@ -99,6 +110,7 @@ var isLoggedIn = function() {
       //console.log('session validity: ' + session.isValid());
     });
   }
+  return false;
 }
 
 /*$(document).on("click", "#loginLogout", function() {
