@@ -24,6 +24,14 @@ map.on('mouseup', function(e) {
   }
 });
 
+map.on('zoomend', function(e) {
+  if (map.getZoom() < 15.5) {
+    //do something
+  } else {
+  //do something else 
+  }
+})
+
 let addMarker = function(resourceType, lat, lng, popup) {
   let el = document.createElement('div');
   if (resourceType == "Campsite") {
